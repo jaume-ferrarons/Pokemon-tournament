@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pokemon-tournament"
+version = "0.1.0"
+description = ""
+authors = ["hectormirete <hectormirete@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.scripts]
+set_pythonpath = "sh -c 'export PYTHONPATH=$(pwd):$PYTHONPATH && exec \"$@\"' sh"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
