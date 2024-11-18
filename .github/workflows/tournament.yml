@@ -23,9 +23,16 @@ jobs:
         with:
           python-version: 3.13
 
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
       - name: Run tournament simulation
-        run:
-          python3 tournament.py
+        run: python3 tournament.py
         env:
           PYTHONPATH: ${{ github.workspace }}:$PYTHONPATH
 
