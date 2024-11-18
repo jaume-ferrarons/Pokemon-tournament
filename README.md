@@ -1,4 +1,5 @@
 # Altafulla code challenge - Pokemon tournament
+![](https://github.com/hectormirete/Pokemon-tournament/actions/workflows/tournament.yml/badge.svg)
 ## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
