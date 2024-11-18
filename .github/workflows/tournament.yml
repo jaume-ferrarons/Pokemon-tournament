@@ -31,7 +31,11 @@ jobs:
 
       - name: Remove previous leaderboard
         run: |
-          sed -i '' '/## Leaderboard/,/^$/d' README.md
+          if [[ "$OSTYPE" == "darwin"* ]]; then
+            sed -i '' '/## Leaderboard/,/^$/d' README.md
+          else
+            sed -i '/## Leaderboard/,/^$/d' README.md
+          fi
 
       - name: Update tournament results
         run: |
