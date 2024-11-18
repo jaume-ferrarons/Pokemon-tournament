@@ -1,4 +1,3 @@
-## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
 |1|example_team2|12|

@@ -46,14 +46,17 @@ jobs:
 
       - name: Update leaderboard file
         run: |
-          echo "## Leaderboard" > leadboard.md
-          echo "| Rank | Team | Score |" >> leadboard.md
+          echo "| Rank | Team | Score |" > leadboard.md
           echo "| --- | --- | --- |" >> leadboard.md
           cat results/lead_board.txt >> leadboard.md
 
       - name: Include leaderboard in README
         run: |
-          awk 'NR==2{print "## Leaderboard\n"system("cat leadboard.md")}1' README.md > README.tmp && mv README.tmp README.md
+          head -n 1 README.md > README.tmp
+          echo "## Leaderboard" >> README.tmp
+          cat leadboard.md >> README.tmp
+          tail -n +2 README.md >> README.tmp
+          mv README.tmp README.md
 
       - name: Commit leaderboard changes
         uses: EndBug/add-and-commit@v9

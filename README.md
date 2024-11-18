@@ -6,13 +6,6 @@
 |2|example_team3|11|
 |3|example_team4|6|
 |4|example_team1|1|
-## Leaderboard
-0
-
-## Description
-Create your own team that wins the most battles in a Pokemon tournament, win points and scale up in the ranking.
-
-
 ## How to contribute
 * Clone the repository
 * Create a new branch
