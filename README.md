@@ -54,5 +54,5 @@ Have fun :)
 | --- | --- | --- |
 |1|example_team3|13|
 |2|example_team2|10|
-|3|example_team4|6|
-|4|example_team1|1|
+|3|example_team4|4|
+|4|example_team1|3|
