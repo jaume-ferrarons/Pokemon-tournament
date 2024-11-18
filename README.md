@@ -1,4 +1,12 @@
 # Altafulla code challenge - Pokemon tournament
+## Leaderboard
+| Rank | Team | Score |
+| --- | --- | --- |
+|1|example_team3|13|
+|2|example_team2|10|
+|3|example_team4|4|
+|4|example_team1|3|
+
 
 ## Description
 Create your own team that wins the most battles in a Pokemon tournament, win points and scale up in the ranking.
@@ -48,11 +56,3 @@ poetry run python tournament.py
 ```
 
 Have fun :) 
-
-## Leaderboard
-| Rank | Team | Score |
-| --- | --- | --- |
-|1|example_team3|13|
-|2|example_team2|10|
-|3|example_team4|4|
-|4|example_team1|3|

@@ -44,12 +44,16 @@ jobs:
             sed -i '/## Leaderboard/,/^$/d' README.md
           fi
 
-      - name: Update tournament results
+      - name: Update leaderboard file
         run: |
-          echo "## Leaderboard" >> README.md
-          echo "| Rank | Team | Score |" >> README.md
-          echo "| --- | --- | --- |" >> README.md
-          cat results/lead_board.txt >> README.md
+          echo "## Leaderboard" > leadboard.md
+          echo "| Rank | Team | Score |" >> leadboard.md
+          echo "| --- | --- | --- |" >> leadboard.md
+          cat results/lead_board.txt >> leadboard.md
+
+      - name: Include leaderboard in README
+        run: |
+          awk 'NR==2{print "## Leaderboard\n"system("cat leadboard.md")}1' README.md > README.tmp && mv README.tmp README.md
 
       - name: Commit leaderboard changes
         uses: EndBug/add-and-commit@v9
