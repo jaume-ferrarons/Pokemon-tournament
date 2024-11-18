@@ -18,7 +18,9 @@ class Pokedex:
         return cls._instance
 
     def __init__(self):
-        if not hasattr(self, 'initialized'):  # Ensure the initialization code runs only once
+        if not hasattr(
+            self, "initialized"
+        ):  # Ensure the initialization code runs only once
             self.pokemon = {}
             self.movements = {}
             self.type_advantages = {}
@@ -63,14 +65,16 @@ class Pokedex:
                 id, name, effect, type, kind, power, accuracy, pp = line.strip().split(
                     ","
                 )
+                acc = float(accuracy.split("%")[0]) / 100 if accuracy else None
                 self.movements[id] = Movement(
+                    id,
                     name,
                     effect,
                     PokemonType(type),
                     MovementKind(kind),
                     int(power),
-                    accuracy,
-                    pp,
+                    acc,
+                    int(pp),
                 )
 
     def load_type_advantages(self):

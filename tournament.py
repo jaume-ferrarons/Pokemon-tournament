@@ -6,6 +6,7 @@ from typing import List
 from logger import logger
 import os
 from importlib import util
+import copy
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
@@ -20,14 +21,14 @@ def load_team(team_file, team_name=None) -> Team:
         lines = f.readlines()
         for line in lines[1:]:
             pokemon_id, *moves = line.strip().split(",")
-            pokemon = pokedex.pokemon[pokemon_id]
-            pokemon.moves = [pokedex.movements[move_id] for move_id in moves]
+            pokemon = copy.copy(pokedex.pokemon[pokemon_id])
+            pokemon.moves = [copy.copy(pokedex.movements[move_id]) for move_id in moves]
             pokemons.append(pokemon)
     team = Team(pokemons, team_name)
     team_dir_name = os.path.dirname(team_file)
     for file in [f for f in os.listdir(team_dir_name) if ".py" in f]:
         module_path = os.path.join(team_dir_name, file)
-        spec = util.spec_from_file_location(team_name+"-selector", module_path)
+        spec = util.spec_from_file_location(team_name + "-selector", module_path)
         module = util.module_from_spec(spec)
         spec.loader.exec_module(module)
         select_move = getattr(module, "select_move", team.move_selector)
@@ -59,18 +60,26 @@ def get_encounter_combinations(teams: List[Team]):
 def compute_lead_board():
     results = {}
     for file in os.listdir("./results"):
-        with open(f"./results/{file}") as f:
-            lines = f.readlines()
-            for line in lines:
-                team, victories = line.strip().split(",")
-                if team not in results:
-                    results[team] = 0
-                results[team] += int(victories)
-    sorted_results = dict(sorted(results.items(), key=lambda item: item[1], reverse=True))
+        if "stats" not in file:
+            with open(f"./results/{file}") as f:
+                lines = f.readlines()
+                for line in lines:
+                    team, victories = line.strip().split(",")
+                    if team not in results:
+                        results[team] = 0
+                    results[team] += int(victories)
+    sorted_results = dict(
+        sorted(results.items(), key=lambda item: item[1], reverse=True)
+    )
     with open("./results/lead_board.csv", mode="w", newline="") as file:
         for key, value in sorted_results.items():
             file.write(f"{key},{value}\n")
     return sorted_results
+
+def clean_files():
+    if os.path.exists("./results"):
+        for file in os.listdir("./results"):
+            os.remove(f"./results/{file}")
 
 
 # Press the green button in the gutter to run the script.
@@ -78,13 +87,13 @@ if __name__ == "__main__":
     teams = get_teams()
     combinations = get_encounter_combinations(teams)
     battles = [Battle(team1, team2) for team1, team2 in combinations]
-    if os.path.exists("./results"):
-        for file in os.listdir("./results"):
-            os.remove(f"./results/{file}")
+    clean_files()
     for battler in battles:
-        logger.info(f"Starting battle between {battler.team1.name} and {battler.team2.name}")
+        logger.info(
+            f"Starting battle between {battler.team1.name} and {battler.team2.name}"
+        )
     for battle in battles:
-        battle.best_of_n(n=100)
+        battle.best_of_n(n=5)
         logger.info(f"Results: {battle.victories}")
         battle.save_results("./results")
     logger.info(f"Lead board: {compute_lead_board()}")

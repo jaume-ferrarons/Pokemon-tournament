@@ -23,22 +23,40 @@ class Movement:
 
     def __init__(
         self,
+        id: str,
         name: str,
         effect: str,
         type: PokemonType,
         kind: MovementKind,
         power: int,
-        accuracy: Optional[str],
+        accuracy: Optional[float],
         pp: int,
     ):
+        self.id = id
         self.name = name
         self.effect = effect
         self.type = type
         self.kind = kind
         self.power = power
-        if accuracy:
-            acc = int(accuracy.split("%")[0])
-            self.accuracy = float(acc / 100)
-        else:
-            self.accuracy = None
+        self.accuracy = accuracy
         self.pp = pp
+        self.max_pp = pp
+
+    def consume_pp(self):
+        if self.pp > 0:
+            self.pp -= 1
+
+    def reset_pp(self):
+        self.pp = self.max_pp
+
+    def __copy__(self):
+        return Movement(
+            self.id,
+            self.name,
+            self.effect,
+            self.type,
+            self.kind,
+            self.power,
+            self.accuracy,
+            self.max_pp,
+        )
