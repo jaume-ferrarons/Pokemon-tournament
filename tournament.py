@@ -71,9 +71,10 @@ def compute_lead_board():
     sorted_results = dict(
         sorted(results.items(), key=lambda item: item[1], reverse=True)
     )
-    with open("./results/lead_board.csv", mode="w", newline="") as file:
-        for key, value in sorted_results.items():
-            file.write(f"{key},{value}\n")
+    with open("./results/lead_board.txt", mode="w", newline="") as file:
+        for index, key_value_tuple in enumerate(sorted_results.items()):
+            key, value = key_value_tuple
+            file.write(f"|{index+1}|{key}|{value}|\n")
     return sorted_results
 
 def clean_files():
@@ -92,6 +93,9 @@ if __name__ == "__main__":
         logger.info(
             f"Starting battle between {battler.team1.name} and {battler.team2.name}"
         )
+    results_path = "./results"
+    if not os.path.exists(results_path):
+        os.makedirs(results_path)
     for battle in battles:
         battle.best_of_n(n=5)
         logger.info(f"Results: {battle.victories}")

@@ -1,0 +1,55 @@
+name: tournament-simulation
+
+on:
+    push:
+        branches:
+        - main
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+  tournament:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.13
+
+      - name: Run tournament simulation
+        run:
+          python3 tournament.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}:$PYTHONPATH
+
+      - name: Upload tournament results
+        uses: actions/upload-artifact@v2
+        with:
+          name: tournament-results
+          path: ./results/
+          overwrite: true
+
+      - name: Remove previous leaderboard
+        run: |
+          sed -i '' '/## Leaderboard/,/^$/d' README.md
+
+      - name: Update tournament results
+        run: |
+          echo "## Leaderboard" >> README.md
+          echo "| Rank | Team | Score |" >> README.md
+          echo "| --- | --- | --- |" >> README.md
+          cat results/lead_board.txt >> README.md
+
+      - name: Commit leaderboard changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "Update leaderboard"
+          add: "README.md"
+          default_author: github_actions
