@@ -49,3 +49,10 @@ poetry run python tournament.py
 
 Have fun :) 
 
+## Leaderboard
+| Rank | Team | Score |
+| --- | --- | --- |
+|1|example_team2|13|
+|2|example_team3|10|
+|3|example_team4|6|
+|4|example_team1|1|
