@@ -64,6 +64,7 @@ class Pokemon:
             "Total_one_shot": 0,
             "Total_no_effect": 0,
             "Total_turns": 0,
+            "Struggle": 0,
         }
 
     def __copy__(self):
