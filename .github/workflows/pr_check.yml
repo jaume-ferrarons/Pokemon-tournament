@@ -1,0 +1,49 @@
+name: pr-check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tournament:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.13
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pypoetry
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+
+      - name: Run tournament simulation
+        run: python3 tournament.py
+        env:
+          PYTHONPATH: ${{ github.workspace }}:$PYTHONPATH
+
+      - name: Update leaderboard file
+        run: |
+          echo "| Rank | Team | Score |" > leadboard.md
+          echo "| --- | --- | --- |" >> leadboard.md
+          cat results/lead_board.txt >> leadboard.md
+
+      - name: Post leaderboard as PR comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          path: leadboard.md
