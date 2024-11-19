@@ -3,10 +3,11 @@
 ## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|ash-ketchum|13|
-|2|RegressionRangers|11|
-|3|cloud_migration|5|
-|4|martini|1|
+|1|RegressionRangers|17|
+|2|ash-ketchum|16|
+|3|cloud_migration|11|
+|4|KoF|3|
+|5|martini|3|
 
 ## How to contribute
 * Clone the repository
