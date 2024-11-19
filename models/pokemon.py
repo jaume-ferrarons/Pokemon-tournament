@@ -148,9 +148,13 @@ class Team:
 
     def is_valid_team(self):
         has_right_number_of_pokemons = len(self.pokemons) == 6
+        pokemon_names = [pokemon.name for pokemon in self.pokemons]
+        has_duplicated_pokemons = len(pokemon_names) == len(set(pokemon_names))
         has_right_number_of_movements = all(
             len(pokemon.moves) == 4 for pokemon in self.pokemons
         )
+        pokemons_movement_ids = [[move.id] for pokemon in self.pokemons for move in pokemon.moves]
+        has_duplicated_movements = all([(len(movements) == len(set(movements))) for movements in pokemons_movement_ids])
         has_valid_movements = all(
             move.id != "156" for pokemon in self.pokemons for move in pokemon.moves
         )
@@ -161,6 +165,8 @@ class Team:
                 has_right_number_of_movements,
                 has_valid_move_selector,
                 has_valid_movements,
+                has_duplicated_pokemons,
+                has_duplicated_movements
             ]
         )
 
