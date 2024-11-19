@@ -142,7 +142,7 @@ class Battle:
             return move
         else:
             logger.info("No PP left for this move! Using Struggle instead!")
-            attacker_pokemon.stats["Struggle"] += 1
+            attacker_pokemon.stats["Count_struggle"] += 1
             return self.pokedex.movements["156"]
 
     # Will take a move, the attacking Pokemon object, and the defending Pokemon object as input
