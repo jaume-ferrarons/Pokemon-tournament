@@ -3,11 +3,12 @@
 ## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|RegressionRangers|20|
-|2|example_team2|14|
-|3|example_team3|11|
-|4|example_team4|5|
-|5|example_team1|0|
+|1|RegressionRangers|25|
+|2|martini|19|
+|3|example_team3|14|
+|4|example_team2|12|
+|5|example_team4|4|
+|6|example_team1|1|
 
 ## How to contribute
 * Clone the repository
