@@ -1,6 +1,7 @@
-|1|RegressionRangers|25|
-|2|martini|19|
-|3|example_team3|14|
-|4|example_team2|12|
-|5|example_team4|4|
-|6|example_team1|1|
+|1|RegressionRangers|30|
+|2|martini|23|
+|3|cloud_migration|20|
+|4|example_team3|13|
+|5|example_team2|12|
+|6|example_team4|6|
+|7|example_team1|1|
