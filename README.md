@@ -4,9 +4,9 @@
 | Rank | Team | Score |
 | --- | --- | --- |
 |1|ash-ketchum|13|
-|2|RegressionRangers|12|
-|3|martini|4|
-|4|cloud_migration|1|
+|2|RegressionRangers|11|
+|3|cloud_migration|5|
+|4|martini|1|
 
 ## How to contribute
 * Clone the repository
