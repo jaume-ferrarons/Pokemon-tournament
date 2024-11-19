@@ -1,9 +1,10 @@
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|RegressionRangers|30|
-|2|martini|23|
-|3|cloud_migration|20|
-|4|example_team3|13|
-|5|example_team2|12|
-|6|example_team4|6|
-|7|example_team1|1|
+|1|RegressionRangers|33|
+|2|ash-ketchum|32|
+|3|martini|24|
+|4|cloud_migration|20|
+|5|example_team2|13|
+|6|example_team3|12|
+|7|example_team4|6|
+|8|example_team1|0|
