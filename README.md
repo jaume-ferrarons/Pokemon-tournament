@@ -30,12 +30,12 @@
     * You can end here. If you do, the movement that your pokemon will use will be random
     * If you want to specify the movement that your pokemon will use, you can create a `.py` file with a function that selects
       the movement to use. 
-    * This function must be named `select_movement` and receive a list of attacker_movements and the pokemon defender.
-      * Example:
-        ```python
-        def select_move(attacker_moves: List[Movement], defender: Pokemon):
-          return random.choice(attacker_moves)
-        ```
+      * This function must be named `select_movement` and receive a list of attacker_movements and the pokemon defender.
+        * Example:
+          ```python
+          def select_move(attacker_moves: List[Movement], attacker:Pokemon, defender: Pokemon):
+            return random.choice(attacker_moves)
+          ```
         
 ## How to run the project
 You can run the tournament locally to see how your team performs
