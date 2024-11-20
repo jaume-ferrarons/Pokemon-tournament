@@ -2,7 +2,7 @@ import random
 
 
 def select_move(attacker_moves, attacker, defender):
-    order = [236, 237, 145, 114]
+    order = [145, 114, 268, 236, 237, 268, 60]
 
     for id_ in order:
         if id_ in [m.id for m in attacker_moves]:
