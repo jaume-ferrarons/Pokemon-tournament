@@ -1,7 +1,10 @@
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|ash-ketchum|19|
-|2|RegressionRangers|14|
-|3|cloud_migration|10|
-|4|KoF|5|
-|5|martini|2|
+|1|not-so-smart|28|
+|2|scenic_castle_view|28|
+|3|ash-ketchum|28|
+|4|RegressionRangers|21|
+|5|cloud_migration|17|
+|6|KoF|10|
+|7|martini|8|
+|8|ev3n-w0rse-than-mats|0|

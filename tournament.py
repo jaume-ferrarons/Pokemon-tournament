@@ -21,8 +21,8 @@ def load_team(team_file, team_name=None) -> Team:
         lines = f.readlines()
         for line in lines[1:]:
             pokemon_id, *moves = line.strip().split(",")
-            pokemon = copy.copy(pokedex.pokemon[pokemon_id])
-            pokemon.moves = [copy.copy(pokedex.movements[move_id]) for move_id in moves]
+            pokemon = copy.copy(pokedex.pokemon[pokemon_id.strip()])
+            pokemon.moves = [copy.copy(pokedex.movements[move_id.strip()]) for move_id in moves]
             pokemons.append(pokemon)
     team = Team(pokemons, team_name)
     team_dir_name = os.path.dirname(team_file)
