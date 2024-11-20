@@ -3,13 +3,13 @@
 ## Leaderboard
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|scenic_castle_view|34|
-|2|not-so-smart|27|
-|3|ash-ketchum|25|
-|4|cloud_migration|19|
-|5|RegressionRangers|17|
-|6|KoF|13|
-|7|martini|5|
+|1|not-so-smart|28|
+|2|scenic_castle_view|25|
+|3|RegressionRangers|24|
+|4|cloud_migration|23|
+|5|ash-ketchum|23|
+|6|KoF|9|
+|7|martini|8|
 |8|ev3n-w0rse-than-mats|0|
 
 ## How to contribute
