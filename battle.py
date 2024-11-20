@@ -136,7 +136,7 @@ class Battle:
     ):
         available_movements = attacker_pokemon.get_moves_with_pp()
         if available_movements:
-            move = attacker_team.move_selector(attacker_pokemon.moves, attacker_pokemon, defender_pokemon)
+            move = attacker_team.move_selector(available_movements, attacker_pokemon, defender_pokemon)
             move.consume_pp()
             attacker_pokemon.stats["Total_moves_used"] += 1
             return move
