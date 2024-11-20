@@ -1,11 +1,12 @@
 | Rank | Team | Score |
 | --- | --- | --- |
-|1|martini|32|
-|2|scenic_castle_view|32|
-|3|ash-ketchum|30|
-|4|cloud_migration|26|
-|5|not-so-smart|24|
-|6|RegressionRangers|18|
-|7|KoF|13|
-|8|team_mat|5|
-|9|ev3n-w0rse-than-mats|0|
+|1|kasperle|44|
+|2|ash-ketchum|31|
+|3|cloud_migration|29|
+|4|martini|27|
+|5|not-so-smart|27|
+|6|scenic_castle_view|26|
+|7|RegressionRangers|23|
+|8|KoF|13|
+|9|team_mat|5|
+|10|ev3n-w0rse-than-mats|0|
