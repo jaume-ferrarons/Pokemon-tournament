@@ -1,8 +1,8 @@
 |1|ash-ketchum|29|
-|2|scenic_castle_view|28|
-|3|not-so-smart|24|
-|4|RegressionRangers|24|
-|5|cloud_migration|19|
-|6|KoF|10|
-|7|martini|6|
+|2|scenic_castle_view|27|
+|3|not-so-smart|26|
+|4|RegressionRangers|20|
+|5|cloud_migration|18|
+|6|KoF|13|
+|7|martini|7|
 |8|ev3n-w0rse-than-mats|0|
